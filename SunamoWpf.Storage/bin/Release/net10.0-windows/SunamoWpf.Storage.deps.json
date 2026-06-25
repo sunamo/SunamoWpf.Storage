@@ -935,7 +935,7 @@
           "SunamoWpf.Extensions": "26.6.21.1",
           "SunamoWpf.Helpers": "26.6.21.1",
           "SunamoWpf.Logging": "26.6.21.1",
-          "SunamoWpf.ToggleSwitch": "26.2.7.2",
+          "SunamoWpf.ToggleSwitch": "26.6.21.1",
           "TextCopy": "6.2.1"
         },
         "runtime": {
@@ -960,7 +960,7 @@
         "dependencies": {
           "Microsoft.Extensions.Logging": "10.0.8",
           "Microsoft.Windows.Compatibility": "10.0.8",
-          "SunamoWpf.SunamoUtils": "26.2.7.2",
+          "SunamoWpf.SunamoUtils": "26.6.21.1",
           "System.Management": "10.0.8"
         },
         "runtime": {
@@ -1005,7 +1005,7 @@
           "SunamoWpf.Data": "26.6.21.1",
           "SunamoWpf.Extensions": "26.6.21.1",
           "SunamoWpf.Logging": "26.6.21.1",
-          "SunamoWpf.SunamoUtils": "26.2.7.2",
+          "SunamoWpf.SunamoUtils": "26.6.21.1",
           "System.Management": "10.0.8",
           "TextCopy": "6.2.1"
         },
@@ -1020,7 +1020,7 @@
         "dependencies": {
           "Microsoft.Extensions.Logging": "10.0.8",
           "SunamoWpf.Core": "26.6.21.1",
-          "SunamoWpf.SunamoUtils": "26.2.7.2"
+          "SunamoWpf.SunamoUtils": "26.6.21.1"
         },
         "runtime": {
           "SunamoWpf.Logging.dll": {
@@ -1032,7 +1032,7 @@
       "SunamoWpf.RegistryWin/26.6.21.1": {
         "dependencies": {
           "Microsoft.Windows.Compatibility": "10.0.8",
-          "SunamoWpf.SunamoUtils": "26.2.7.2"
+          "SunamoWpf.SunamoUtils": "26.6.21.1"
         },
         "runtime": {
           "SunamoWpf.RegistryWin.dll": {
@@ -1041,7 +1041,7 @@
           }
         }
       },
-      "SunamoWpf.SunamoUtils/26.2.7.2": {
+      "SunamoWpf.SunamoUtils/26.6.21.1": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "10.0.8",
           "Microsoft.Windows.Compatibility": "10.0.8",
@@ -1056,7 +1056,7 @@
           }
         }
       },
-      "SunamoWpf.ToggleSwitch/26.2.7.2": {
+      "SunamoWpf.ToggleSwitch/26.6.21.1": {
         "dependencies": {
           "SunamoWpf.Converters": "26.6.21.1",
           "SunamoWpf.Core": "26.6.21.1"
@@ -1499,12 +1499,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "SunamoWpf.SunamoUtils/26.2.7.2": {
+    "SunamoWpf.SunamoUtils/26.6.21.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SunamoWpf.ToggleSwitch/26.2.7.2": {
+    "SunamoWpf.ToggleSwitch/26.6.21.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

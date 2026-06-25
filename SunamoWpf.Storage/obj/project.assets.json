@@ -2052,7 +2052,7 @@
           "SunamoWpf.Extensions": "26.6.21.1",
           "SunamoWpf.Helpers": "26.6.21.1",
           "SunamoWpf.Logging": "26.6.21.1",
-          "SunamoWpf.ToggleSwitch": "26.2.7.2",
+          "SunamoWpf.ToggleSwitch": "26.6.21.1",
           "TextCopy": "6.2.1"
         },
         "compile": {
@@ -2087,7 +2087,7 @@
         "dependencies": {
           "Microsoft.Extensions.Logging": "10.0.8",
           "Microsoft.Windows.Compatibility": "10.0.8",
-          "SunamoWpf.SunamoUtils": "26.2.7.2",
+          "SunamoWpf.SunamoUtils": "26.6.21.1",
           "System.Management": "10.0.8"
         },
         "compile": {
@@ -2147,7 +2147,7 @@
           "SunamoWpf.Data": "26.6.21.1",
           "SunamoWpf.Extensions": "26.6.21.1",
           "SunamoWpf.Logging": "26.6.21.1",
-          "SunamoWpf.SunamoUtils": "26.2.7.2",
+          "SunamoWpf.SunamoUtils": "26.6.21.1",
           "System.Management": "10.0.8",
           "TextCopy": "6.2.1"
         },
@@ -2167,7 +2167,7 @@
         "dependencies": {
           "Microsoft.Extensions.Logging": "10.0.8",
           "SunamoWpf.Core": "26.6.21.1",
-          "SunamoWpf.SunamoUtils": "26.2.7.2"
+          "SunamoWpf.SunamoUtils": "26.6.21.1"
         },
         "compile": {
           "bin/placeholder/SunamoWpf.Logging.dll": {}
@@ -2184,7 +2184,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Microsoft.Windows.Compatibility": "10.0.8",
-          "SunamoWpf.SunamoUtils": "26.2.7.2"
+          "SunamoWpf.SunamoUtils": "26.6.21.1"
         },
         "compile": {
           "bin/placeholder/SunamoWpf.RegistryWin.dll": {}
@@ -2193,7 +2193,7 @@
           "bin/placeholder/SunamoWpf.RegistryWin.dll": {}
         }
       },
-      "SunamoWpf.SunamoUtils/26.2.7.2": {
+      "SunamoWpf.SunamoUtils/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
@@ -2210,7 +2210,7 @@
           "bin/placeholder/SunamoWpf.SunamoUtils.dll": {}
         }
       },
-      "SunamoWpf.ToggleSwitch/26.2.7.2": {
+      "SunamoWpf.ToggleSwitch/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
@@ -4005,12 +4005,12 @@
       "path": "../../SunamoWpf.RegistryWin/SunamoWpf.RegistryWin/SunamoWpf.RegistryWin.csproj",
       "msbuildProject": "../../SunamoWpf.RegistryWin/SunamoWpf.RegistryWin/SunamoWpf.RegistryWin.csproj"
     },
-    "SunamoWpf.SunamoUtils/26.2.7.2": {
+    "SunamoWpf.SunamoUtils/26.6.21.1": {
       "type": "project",
       "path": "../../SunamoWpf.SunamoUtils/SunamoWpf.SunamoUtils/SunamoWpf.SunamoUtils.csproj",
       "msbuildProject": "../../SunamoWpf.SunamoUtils/SunamoWpf.SunamoUtils/SunamoWpf.SunamoUtils.csproj"
     },
-    "SunamoWpf.ToggleSwitch/26.2.7.2": {
+    "SunamoWpf.ToggleSwitch/26.6.21.1": {
       "type": "project",
       "path": "../../SunamoWpf.ToggleSwitch/SunamoWpf.ToggleSwitch/SunamoWpf.ToggleSwitch.csproj",
       "msbuildProject": "../../SunamoWpf.ToggleSwitch/SunamoWpf.ToggleSwitch/SunamoWpf.ToggleSwitch.csproj"
@@ -4076,6 +4076,9 @@
         }
       },
       "warningProperties": {
+        "noWarn": [
+          "NU1701"
+        ],
         "warnAsError": [
           "NU1605"
         ]
