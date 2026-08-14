@@ -56,7 +56,7 @@ public class SettingsManager : ISettingsManagerWpf<FrameworkElement, DependencyP
                     }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
     }
     /// <summary>

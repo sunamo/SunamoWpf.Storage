@@ -285,11 +285,6 @@ public partial class ApplicationDataContainerList : System.Collections.IEnumerab
                 if (typeName == ab.A)
                 {
                     ab.B = value;
-                    bool throwExcIfFalse = true;
-                    if (typeName == "System.Windows.WindowState")
-                    {
-                        throwExcIfFalse = false;
-                    }
                     //TF.throwExcIfCantBeWrite = throwExcIfFalse;
                     SaveFile().RunSynchronously();
                 }
