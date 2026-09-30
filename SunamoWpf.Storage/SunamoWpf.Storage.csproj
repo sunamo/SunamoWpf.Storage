@@ -5,8 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>SunamoWpf</RootNamespace>
     <UseWPF>true</UseWPF>
-    <DefineConstants>$(DefineConstants);ASYNC</DefineConstants>
-    <Description>WPF storage and configuration extracted from SunamoWpf</Description>
+    <Description>Merged into SunamoWpf.Core (flat packages, no cross-package references)</Description>
     <Version>26.9.30.4</Version>
     <Authors>www.sunamo.cz</Authors>
     <Copyright>www.sunamo.cz</Copyright>
@@ -26,15 +25,5 @@
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <Optimize>false</Optimize>
     <PackageReleaseNotes>Interfaces v namespace SunamoWpf.Interfaces</PackageReleaseNotes>
-    <NoWarn>CA1416;CS8604;CS8602;CS8600;CS8625;CS8603;CS8622;CS8618;CS0618</NoWarn>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="10.0.8" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SunamoWpf.Controls\SunamoWpf.Controls\SunamoWpf.Controls.csproj" />
-    <ProjectReference Include="..\..\SunamoWpf.Core\SunamoWpf.Core\SunamoWpf.Core.csproj" />
-    <ProjectReference Include="..\..\SunamoWpf.Helpers\SunamoWpf.Helpers\SunamoWpf.Helpers.csproj" />
-    <ProjectReference Include="..\..\SunamoWpf.RegistryWin\SunamoWpf.RegistryWin\SunamoWpf.RegistryWin.csproj" />
-  </ItemGroup>
 </Project>
