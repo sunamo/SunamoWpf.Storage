@@ -55,7 +55,7 @@ public partial class ApplicationDataContainer : ApplicationDataConsts
         FrameworkElement fw = (FrameworkElement)o;
         if (fw != null)
         {
-            data[fw].SaveFile().RunSynchronously();
+            data[fw].SaveFile().GetAwaiter().GetResult();
         }
         else
         {
@@ -117,7 +117,7 @@ public partial class ApplicationDataContainer : ApplicationDataConsts
     public void Add(Window cb)
     {
         // Automatically load
-        var adcl = AddFrameworkElement(cb);
+        var adcl = AddFrameworkElement(cb, ResolveControlFile(cb));
         var list = adcl.GetListString(ItemsSource);
 
 
@@ -211,7 +211,34 @@ public partial class ApplicationDataContainer : ApplicationDataConsts
     }
     public ApplicationDataContainerList AddFrameworkElement(FrameworkElement fw)
     {
-        ApplicationDataContainerList result = ApplicationDataContainerList.Init(fw, "").Result;
+        return AddFrameworkElement(fw, ResolveControlFile(fw));
+    }
+
+    /// <summary>
+    /// Složka, do které se ukládají soubory s nastavením ovládacích prvků a oken. Výchozí je %APPDATA%\_Sunamo\proces\Controls, aplikace ji může přepsat.
+    /// </summary>
+    public static string ControlsFolder { get; set; } = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "_Sunamo",
+        Path.GetFileNameWithoutExtension(Environment.ProcessPath ?? "App"), "Controls");
+
+    /// <summary>
+    /// Vrátí cestu k souboru s nastavením prvku (název prvku, u okna bez Name název typu).
+    /// </summary>
+    /// <param name="fw">Prvek, jehož nastavení se ukládá.</param>
+    private static string ResolveControlFile(FrameworkElement fw)
+    {
+        var name = string.IsNullOrWhiteSpace(fw.Name) ? fw.GetType().Name : fw.Name;
+        return Path.Combine(ControlsFolder, name + ".txt");
+    }
+
+    /// <summary>
+    /// Načte nastavení prvku z daného souboru a zaregistruje ho pod prvkem.
+    /// </summary>
+    /// <param name="fw">Prvek, jehož nastavení se ukládá.</param>
+    /// <param name="path">Cesta k souboru s nastavením.</param>
+    private ApplicationDataContainerList AddFrameworkElement(FrameworkElement fw, string path)
+    {
+        ApplicationDataContainerList result = ApplicationDataContainerList.Init(fw, path).Result;
         return AddFrameworkElement(fw, result);
     }
 

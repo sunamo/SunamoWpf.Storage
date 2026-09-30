@@ -37,10 +37,27 @@ public partial class ApplicationDataContainerList : System.Collections.IEnumerab
     /// <param name="path"></param>
     private ApplicationDataContainerList(FrameworkElement fw)
     {
-        ThrowEx.IsWhitespaceOrNull("fw.Name", fw.Name);
+        // Window bez Name (typicky bez x:Name) se ukládá pod názvem typu, viz ApplicationDataContainer.Add(Window)
+        if (fw is not Window)
+        {
+            ThrowEx.IsWhitespaceOrNull("fw.Name", fw.Name);
+        }
     }
 
 
+
+    /// <summary>
+    /// Načte obsah souboru, pokud cesta existuje; jinak vrátí prázdný řetězec (soubor vznikne až při prvním uložení).
+    /// </summary>
+    /// <param name="path">Cesta k souboru s nastavením.</param>
+    private static async Task<string> ReadContentIfExists(string path)
+    {
+        if (string.IsNullOrEmpty(path) || !File.Exists(path))
+        {
+            return string.Empty;
+        }
+        return await TF.ReadAllText(path) ?? string.Empty;
+    }
 
     /// <summary>
     /// Parse text file in format key|fullname|value
@@ -60,7 +77,7 @@ public partial class ApplicationDataContainerList : System.Collections.IEnumerab
 #if ASYNC
     await
 #endif
- TF.ReadAllText(path);
+ ReadContentIfExists(path);
         if (content.Length != 0)
         {
             content = content.Substring(0, content.Length - 1);
@@ -286,7 +303,7 @@ public partial class ApplicationDataContainerList : System.Collections.IEnumerab
                 {
                     ab.B = value;
                     //TF.throwExcIfCantBeWrite = throwExcIfFalse;
-                    SaveFile().RunSynchronously();
+                    SaveFile().GetAwaiter().GetResult();
                 }
                 else
                 {
@@ -298,7 +315,7 @@ public partial class ApplicationDataContainerList : System.Collections.IEnumerab
                 ABWpf ab = ABWpf.Get(typeName, value);
                 data.Add(key, ab);
                 string zapsatDoSouboru = SF.PrepareToSerialization2(CA.ToListString(key, typeName, SH.ListToString(value))) + "|";
-                TF.AppendAllText(zapsatDoSouboru, path).RunSynchronously();
+                TF.AppendAllText(zapsatDoSouboru, path).GetAwaiter().GetResult();
             }
         }
     }
@@ -320,6 +337,15 @@ public partial class ApplicationDataContainerList : System.Collections.IEnumerab
             var value = item.Value.B;
             value = CAG.ToList<string>(value.ToString(), ",");
             sb.Append(SF.PrepareToSerialization2(CA.ToListString(item.Key, item.Value.A, value.ToString())) + "|");
+        }
+        if (string.IsNullOrEmpty(path))
+        {
+            return;
+        }
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrEmpty(directory))
+        {
+            Directory.CreateDirectory(directory);
         }
         await TF.WriteAllText(path, sb.ToString());
     }
