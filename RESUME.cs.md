@@ -1,13 +1,37 @@
 ---
-schema_version: 2
+schema_version: 6
 type: library
-file_count: 4
-delete_recommendation_percent: 85
-generated_date: 2026-09-30
-generated_time: 15:08:40
+file_count: 25
+avg_lines_per_file: 64
+move_to_legacy_percent: 3
+generated_date: 2026-10-01
+generated_time: 16:43:12
+github_source_url: 
+last_build_ok: 
+last_build_date: 
+last_tests_run_date: 
+covered_lines: 
+total_lines: 
 ---
 
 ## Description
 
-Prázdný zástupný balíček bez kódu a bez referencí na jiné balíčky; csproj má popis "Merged into SunamoWpf.Core". Zdroje (storage) byly přesunuty do balíčku SunamoWpf.Core (`SunamoWpf.Core\Merged$k`), protože veřejné typy se vystavují společně s typy z Core a samostatné balíčky by na straně konzumentů kolidovaly.
-Repo je kandidát na smazání, jakmile na balíček nic nespoléhá.
+Balíček pro ukládání a konfiguraci WPF oken vyčleněný z SunamoWpf. Obsahuje ConfigurableWindowHelper, ConfigurableWindowSettings a rozhraní IConfigurableWindow, které si pamatují nastavení okna a uživatelských ovládacích prvků.
+
+## Původ zdrojáků
+
+Staženo z GitHubu: **ne** — vlastní projekt.
+
+- Ověřeno: Součást vlastního ekosystému Sunamo, bez cizího remote.
+
+## Doporučení přesunu do legacy
+
+Doporučení přesunu do sunamocz-legacy.visualstudio.com: **3 %** — Aktivní balíček s reálným kódem.
+
+- Reálný kód správy nastavení oken
+- Vyčleněno z SunamoWpf
+
+## Vazby na moje repa
+
+- Submoduly: žádné
+- ProjectReference / PackageReference: SunamoWpf.Controls, SunamoWpf.Core, SunamoWpf.Helpers, SunamoWpf.RegistryWin
